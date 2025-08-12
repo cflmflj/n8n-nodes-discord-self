@@ -1,22 +1,27 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-discord-self",
   "version": "0.1.0",
-  "description": "",
+  "description": "n8n community nodes for Discord selfbot via discord.js-selfbot-v13 (use at your own risk)",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package",
+    "n8n",
+    "discord",
+    "selfbot",
+    "discord.js",
+    "discord.js-selfbot-v13"
   ],
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "ray",
+    "email": "ray@example.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": ""
   },
   "engines": {
-    "node": ">=20.15"
+    "node": ">=20.18"
   },
   "main": "index.js",
   "scripts": {
@@ -25,7 +30,7 @@
     "format": "prettier nodes credentials --write",
     "lint": "eslint nodes credentials package.json",
     "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "prepublishOnly": "npm run build && npm run lint"
   },
   "files": [
     "dist"
@@ -33,13 +38,19 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
+      "dist/credentials/DiscordSelfApi.credentials.js",
       "dist/credentials/ExampleCredentialsApi.credentials.js",
       "dist/credentials/HttpBinApi.credentials.js"
     ],
     "nodes": [
+      "dist/nodes/DiscordSelf/DiscordSelf.node.js",
+      "dist/nodes/DiscordSelf/DiscordSelfTrigger.node.js",
       "dist/nodes/ExampleNode/ExampleNode.node.js",
       "dist/nodes/HttpBin/HttpBin.node.js"
     ]
+  },
+  "dependencies": {
+    "discord.js-selfbot-v13": "3.7.0"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "~8.32.0",
